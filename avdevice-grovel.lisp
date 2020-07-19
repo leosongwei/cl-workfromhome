@@ -19,7 +19,7 @@
 ;; (cstruct c-ffmpeg-AVDictionary "struct AVDictionary"
 ;;          )
 
-(cstruct c-ffmpeg-AVDeviceInfo "AVDeviceInfo"
+(cstruct c-ffmpeg-AVDeviceInfo "struct AVDeviceInfo"
          (device-name "device_name" :type :string)
          (device-description "device_description" :type :string))
 
