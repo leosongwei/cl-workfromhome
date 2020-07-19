@@ -1,3 +1,5 @@
+(load (cffi-grovel:process-grovel-file "avformat-grovel.lisp" "/dev/shm/_ffmpeg.o"))
+
 (load-foreign-library "libavformat.so")
 
 (defcfun ("av_register_all" c-ffmpeg-av_register_all) :void)

@@ -38,7 +38,7 @@
   (with-foreign-string (c-device-name device-name)
     (with-foreign-object (ptr :pointer)
       (setf (mem-aref ptr :pointer) (null-pointer))
-      (c-ffmpeg-avdevice_list_input_sources (null-pointer) c-device-name (null-pointer) ptr)
+      (print (c-ffmpeg-avdevice_list_input_sources (null-pointer) c-device-name (null-pointer) ptr))
       (make-ffmpeg-avdevice-info-list :ptr (mem-aref ptr :pointer)))))
 
 (ffmpeg-avdevice-list-input-sources "x11grab")
