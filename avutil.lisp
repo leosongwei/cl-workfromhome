@@ -10,10 +10,20 @@
   (prev (:pointer (:struct c-ffmpeg-AVDictionaryEntry)))
   (flags :int))
 
+(defcfun ("av_dict_free" c-ffmpeg-av_dict_free) :void
+  (pm :pointer))
+
 ;; ----------------------------------------
 
 (defstruct ffmpeg-dict
   (ptr #.(null-pointer) :type #.(type-of (null-pointer))))
+
+(defun ffmpeg-dict-free (ffmpeg-dict)
+  (let ((ptr (ffmpeg-dict-ptr ffmpeg-dict)))
+    (with-foreign-object (external-ptr :pointer)
+      (setf (mem-ref external-ptr :pointer) ptr)
+      (c-ffmpeg-av_dict_free external-ptr))
+    (setf (ffmpeg-dict-ptr ffmpeg-dict) (null-pointer))))
 
 (defun ffmpeg-dict-ref (ffmpeg-dict key)
   (with-foreign-string (c-key key)
@@ -47,9 +57,13 @@
   `(ffmpeg-dict-ref-set ,ffmpeg-dict ,key ,value))
 
 ;; (let ((dict (make-ffmpeg-dict)))
+;;   (print (ffmpeg-dict-ref dict "23333"))
 ;;   (setf (ffmpeg-dict-ref dict "2333") "666")
 ;;   (setf (ffmpeg-dict-ref dict "test") "89dhv239frj9wejf2")
-;;   (list
-;;    (ffmpeg-dict-ref dict "2333")
-;;    (ffmpeg-dict-ref dict "test")
-;;    (ffmpeg-dict-ref dict "test1")))
+;;   (print
+;;    (list
+;;     (ffmpeg-dict-ref dict "2333")
+;;     (ffmpeg-dict-ref dict "test")
+;;     (ffmpeg-dict-ref dict "test1")))
+;;   (ffmpeg-dict-free dict)
+;;   (ffmpeg-dict-ref dict "test"))
