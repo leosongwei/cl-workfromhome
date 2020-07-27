@@ -2,23 +2,6 @@
 
 (include "libavdevice/avdevice.h")
 
-
-(cstruct c-ffmpeg-AVInputFormat "struct AVInputFormat"
-         (name "name" :type :string)
-         (long-name "long_name" :type :string)
-         (next "next" :type :pointer)) ;; ptr to AVInputformat
-
-(cstruct c-ffmpeg-AVOutputFormat "struct AVInputFormat"
-         (name "name" :type :string)
-         (long-name "long_name" :type :string)
-         (next "next" :type :pointer)) ;; ptr to AVOutputformat, grovel can't do recursive parse
-
-(cstruct c-ffmpeg-AVFormatContext "struct AVFormatContext"
-         (iformat "iformat" :type (:pointer (:struct c-ffmpeg-AVInputFormat))))
-
-;; (cstruct c-ffmpeg-AVDictionary "struct AVDictionary"
-;;          )
-
 (cstruct c-ffmpeg-AVDeviceInfo "struct AVDeviceInfo"
          (device-name "device_name" :type :string)
          (device-description "device_description" :type :string))

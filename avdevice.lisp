@@ -41,7 +41,7 @@
       (print (c-ffmpeg-avdevice_list_input_sources (null-pointer) c-device-name (null-pointer) ptr))
       (make-ffmpeg-avdevice-info-list :ptr (mem-aref ptr :pointer)))))
 
-(ffmpeg-avdevice-list-input-sources "x11grab")
+;; (ffmpeg-avdevice-list-input-sources "x11grab")
 
 ;; ptr = []
 ;; ptr_actual = ref(ptr)
