@@ -67,3 +67,10 @@
 ;;     (ffmpeg-dict-ref dict "test1")))
 ;;   (ffmpeg-dict-free dict)
 ;;   (ffmpeg-dict-ref dict "test"))
+
+(defun ffmpeg-dict-from-list (kv-list)
+  (let ((ffmpeg-dict (make-ffmpeg-dict)))
+    (dolist (pair kv-list)
+      (setf (ffmpeg-dict-ref ffmpeg-dict (car pair)) (cdr pair)))
+    ffmpeg-dict))
+
