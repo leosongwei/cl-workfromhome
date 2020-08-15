@@ -14,7 +14,7 @@
 
 (defun ffmpeg-av-find-input-format (name)
   (let ((ptr (with-foreign-string (c-name name)
-               (c-ffmpeg-av_find_input-format c-name))))
+               (c-ffmpeg-av_find_input_format c-name))))
     (if (null-pointer-p ptr)
         nil
         (make-ffmpeg-av-input-format :ptr ptr))))

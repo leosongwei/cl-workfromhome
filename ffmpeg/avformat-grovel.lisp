@@ -14,4 +14,4 @@
          (next "next" :type :pointer)) ;; ptr to AVOutputformat, grovel can't do recursive parse
 
 (cstruct c-ffmpeg-AVFormatContext "struct AVFormatContext"
-         (iformat "iformat" :type (:pointer (:struct c-ffmpeg-AVInputFormat))))
+         (iformat "iformat" :type :pointer))
