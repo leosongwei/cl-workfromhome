@@ -3,6 +3,8 @@
 
 (defcfun ("SDL_Init" c-sdl-init) :int (flags :int))
 
+(defcfun ("SDL_Quit" c-sdl-quit) :void)
+
 (defcfun ("SDL_GetError" c-sdl-geterror) :string)
 
 (defcfun ("SDL_CreateWindow" c-sdl-createwindow) :pointer
@@ -37,10 +39,16 @@
 (defcfun ("SDL_RenderPresent" c-sdl-RenderPresent) :void (renderer :pointer))
 
 ;; --------------------------------------------------------
-;; Surface
+;; Surface & Texture
 
 (defcfun ("SDL_LoadBMP" c-sdl-loadBMP) :pointer
   (file :string))
 
 ;;void SDL_FreeSurface(SDL_Surface* surface)
 (defcfun ("SDL_FreeSurface" c-sdl-freesurface) :void (surface :pointer))
+
+(defcfun ("SDL_CreateTextureFromSurface" c-sdl-CreateTextureFromSurface) :pointer
+  (renderer :pointer)
+  (surface :pointer))
+
+(defcfun ("SDL_DestroyTexture" c-sdl-DestroyTexture) :void (texture :pointer))
