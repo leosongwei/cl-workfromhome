@@ -493,3 +493,18 @@
        ((:SDLK_APP2 "SDLK_APP2"))
        ((:SDLK_AUDIOREWIND "SDLK_AUDIOREWIND"))
        ((:SDLK_AUDIOFASTFORWARD "SDLK_AUDIOFASTFORWARD ")))
+
+(cenum c-sdl-keymod
+       ((:KMOD_NONE "KMOD_NONE"))
+       ((:KMOD_LSHIFT "KMOD_LSHIFT"))
+       ((:KMOD_RSHIFT "KMOD_RSHIFT"))
+       ((:KMOD_LCTRL "KMOD_LCTRL"))
+       ((:KMOD_RCTRL "KMOD_RCTRL"))
+       ((:KMOD_LALT "KMOD_LALT"))
+       ((:KMOD_RALT "KMOD_RALT"))
+       ((:KMOD_LGUI "KMOD_LGUI"))
+       ((:KMOD_RGUI "KMOD_RGUI"))
+       ((:KMOD_NUM "KMOD_NUM"))
+       ((:KMOD_CAPS "KMOD_CAPS"))
+       ((:KMOD_MODE "KMOD_MODE"))
+       ((:KMOD_RESERVED "KMOD_RESERVED")))

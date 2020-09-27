@@ -57,4 +57,4 @@
 ;; --------------------------------------------------------
 ;; Event
 
-(defcfun ("SDL_WaitEvent" c-sdl-wait-event
+;; (defcfun ("SDL_WaitEvent" c-sdl-wait-event
