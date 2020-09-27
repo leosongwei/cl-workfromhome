@@ -53,3 +53,29 @@
          (clip-rect "clip_rect" :type :pointer) ;; SDL_Rect
          (refcount "refcount" :type :int))
 
+;; ---------------------------------------------
+;; Keyboard
+
+
+
+;; ---------------------------------------------
+;; Event
+
+(cstruct c-sdl-window-event "SDL_WindowEvent"
+         (type "type" :type :uint32)
+         (timestamp "timestamp" :type :uint32)
+         (windowID "windowID" :type :uint32)
+         (event "event" :type :uint8)
+         (data1 "data1" :type :int32)
+         (data2 "data2" :type :int32))
+
+(cstruct c-sdl-keyboard-event "SDL_KeyboardEvent"
+         (type "type" :type :uint32)
+         (timestamp "timestamp" :type :uint32)
+         (windowID "windowID" :type :uint32)
+         (state "state" :type :uint8)
+         (repeat "repeat" :type :uint8))
+
+(cstruct c-sdl-event "SDL_Event"
+         (type "type" :type :uint32)
+         (window "window" :type (:struct c-sdl-window-event)))
